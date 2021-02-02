@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Collection from "../views/Collection.vue"
 import Item from "../views/Item.vue"
 
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,26 +19,6 @@ const routes = [
     path: '/people',
     name: 'People',
     component: Collection,
-    props: {
-      default: true,
-      title: "People",
-      data: [
-        {
-          id: 1,
-          name: "Luke",
-        },
-        {
-          id: 2,
-          name: "Leia",
-        },
-        {
-          id: 3,
-          name: "Darth Vader",
-        },
-       
-    ],
-    content: true
-    }
   },
   {
     path: '/starships',
@@ -44,7 +26,7 @@ const routes = [
     component: Collection,
     props: {
       default: true,
-      title: "Starships",
+      title: "starships",
       data: [
         {
           id: 1,
@@ -68,7 +50,7 @@ const routes = [
     component: Collection,
     props: {
       default: true,
-      title: "Planets",
+      title: "planets",
       data: [
         {
           id: 1,
@@ -91,19 +73,16 @@ const routes = [
     path: '/people/:id',
     name: 'Person',
     component: Item,
-    props: {id: true}
   },
   {
     path: '/planets/:id',
     name: 'Planet',
     component: Item,
-    props:{id: true}
   },
   {
     path: '/starships/:id',
     name: 'Starship',
     component: Item,
-    props: {id: true}
   },
 
 ]

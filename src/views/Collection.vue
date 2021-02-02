@@ -1,66 +1,73 @@
 <template>
 <div>
-    <h1 v-if="pageTitle">{{pageTitle}}</h1>
+    <h1 v-if="title">{{title}}</h1>
 
     <div class="collection">
         <div v-if="loading" class="loading">
             Loading...
         </div>
 
-        <div v-if="error" class="error">
-            {{ error }}
-        </div>
-
-        <div v-if="collection" class="content">
-            <ul v-for="item in collection" :key="item.id">
-                <li v-if="title == 'People' ">
+        <div v-else class="content">
+            <ul>
+                <li v-for="(item, index) in collection" :key="index">
                     <router-link
-                    :to="{name: 'Person',params: {id : item.id}}"
-                    >
-                    {{item.name}}
-                    </router-link>
-                </li>
-                <li v-else-if="title == 'Planets' ">
-                    <router-link
-                    :to="{name: 'Planet',params: {id : item.id}}"
-                    >
-                    {{item.name}}
-                    </router-link>
-                </li>
-                <li v-if="title == 'Starships' ">
-                    <router-link
-                    :to="{name: 'Starship',params: {id : item.id}}"
+                     :to="`${title}/${index+1}`"
                     >
                     {{item.name}}
                     </router-link>
                 </li>
             </ul>
         </div>
+
+        <div v-if="error" class="error">
+            {{ error }}
+        </div>
   </div>
 </div>
 </template>
 
 <script>
+
 export default {
-    props: ['title', 'data'],
     data(){
         return {
-            collection: null,
+            collection: [],
             loading: false,
             error: null,
-            pageTitle: null,
         }
     },
-    watch:{
-        '$route' (){
-            this.pageTitle = this.title;
-            this.collection = this.data;
+    computed: {
+        title() {
+            return this.$route.name.toLowerCase();
         }
     },
-    beforeMount(){
-        this.collection = this.data,
-        this.pageTitle = this.title
-    } 
+    watch: {
+        '$route' () {
+            this.getData()
+        }
+    },
+    methods:{
+        async getData(){
+
+            this.loading = true
+            try {
+                const res =  await this.$api.getCollection(this.title)
+                this.collection = res.results
+            } catch (error) {
+                console.log(error)
+            }
+             this.loading = false
+           
+           
+           
+        }
+    },
+    mounted(){
+       
+        this.getData();
+     },
+
+
 }
 </script>
 
