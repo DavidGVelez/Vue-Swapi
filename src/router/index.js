@@ -10,23 +10,72 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   // Collection/endpoint Routes
   {
     path: '/people',
     name: 'People',
-    component: Collection
+    component: Collection,
+    props: {
+      default: true,
+      title: "People",
+      data: [
+        {
+          name: "Luke",
+        },
+        {
+          name: "Leia",
+        },
+        {
+          name: "Darth Vader",
+        },
+       
+    ],
+    content: true
+    }
   },
   {
     path: '/starships',
     name: 'Starships',
-    component: Collection
+    component: Collection,
+    props: {
+      default: true,
+      title: "Starthips",
+      data: [
+        {
+          name: "Startship #1",
+        },
+        {
+          name: "Startship #2",
+        },
+        {
+          name: "Startship #3",
+        },
+
+    ]
+    }
   },
   {
     path: '/planets',
     name: 'Planets',
-    component: Collection
+    component: Collection,
+    props: {
+      default: true,
+      title: "Planets",
+      data: [
+        {
+          name: "Endor",
+        },
+        {
+          name: "Tatooine",
+        },
+        {
+          name: "Hoot",
+        },
+
+    ]
+    }
   },
   // Endpoint/Json Routes
   {
