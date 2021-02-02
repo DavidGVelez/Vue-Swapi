@@ -22,12 +22,15 @@ const routes = [
       title: "People",
       data: [
         {
+          id: 1,
           name: "Luke",
         },
         {
+          id: 2,
           name: "Leia",
         },
         {
+          id: 3,
           name: "Darth Vader",
         },
        
@@ -41,15 +44,18 @@ const routes = [
     component: Collection,
     props: {
       default: true,
-      title: "Starthips",
+      title: "Starships",
       data: [
         {
+          id: 1,
           name: "Startship #1",
         },
         {
+          id: 2,
           name: "Startship #2",
         },
         {
+          id: 3,
           name: "Startship #3",
         },
 
@@ -65,12 +71,15 @@ const routes = [
       title: "Planets",
       data: [
         {
+          id: 1,
           name: "Endor",
         },
         {
+          id: 2,
           name: "Tatooine",
         },
         {
+          id: 3,
           name: "Hoot",
         },
 
@@ -80,18 +89,21 @@ const routes = [
   // Endpoint/Json Routes
   {
     path: '/people/:id',
-    name: 'People/:id',
-    component: Item
+    name: 'Person',
+    component: Item,
+    props: {id: true}
   },
   {
     path: '/planets/:id',
-    name: 'Planet/:id',
-    component: Item
+    name: 'Planet',
+    component: Item,
+    props:{id: true}
   },
   {
     path: '/starships/:id',
-    name: 'Starship/:id',
-    component: Item
+    name: 'Starship',
+    component: Item,
+    props: {id: true}
   },
 
 ]
