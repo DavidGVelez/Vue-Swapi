@@ -1,18 +1,21 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+        <h1>Welcome to my Swapi-Vue app</h1>
+        <p>Made to practise vue, routing and fetching api data</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  }
+
 }
 </script>
+
+<style lang="scss">
+    p{
+      margin: 1rem 0;
+    }
+</style>

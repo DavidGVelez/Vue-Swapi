@@ -46,6 +46,6 @@ export default {
 
 <style lang="scss">
     h1{
-        font-size: 10rem;
+        font-size: 2rem;
     }
 </style>
