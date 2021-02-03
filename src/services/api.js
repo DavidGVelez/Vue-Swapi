@@ -13,19 +13,21 @@ export const getCollection = async (collection) => {
     
 }
 
+export const getItem = async (segment) => {
+    let response = await fetch(BASE_URL+segment)
+
+    if (!response.ok){
+        throw Error(response.statusText)
+    }
+    const data = await response.json();
+
+    return data
+}
+
 const api = {
     getCollection,
+    getItem
 }
 
 export default api
 
-// export const getItem = async (collection, id) => {
-//     let response = await fetch(BASE_URL+"/"+collection+"/"+id)
-
-//     if (!response.ok){
-//         throw Error(response.statusText)
-//     }
-//     const data = await response.json();
-
-//     return data
-// }

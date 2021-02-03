@@ -32,4 +32,7 @@ export default {
 .container{
   margin: 3rem 0;
 }
+.loading {
+  margin: auto
+}
 </style>

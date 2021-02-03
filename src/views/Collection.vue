@@ -56,11 +56,8 @@ export default {
             } catch (error) {
                 console.log(error)
             }
-             this.loading = false
-           
-           
-           
-        }
+             this.loading = false 
+        },
     },
     mounted(){
        
@@ -74,6 +71,7 @@ export default {
 <style lang="scss">
     h1{
         font-size: 2rem;
+           text-transform: capitalize;
     }
     .content {
         margin: 2rem 0;
@@ -94,5 +92,6 @@ export default {
                 }
             }
         }
+
     }
 </style>

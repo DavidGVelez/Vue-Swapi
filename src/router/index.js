@@ -24,25 +24,6 @@ const routes = [
     path: '/starships',
     name: 'Starships',
     component: Collection,
-    props: {
-      default: true,
-      title: "starships",
-      data: [
-        {
-          id: 1,
-          name: "Startship #1",
-        },
-        {
-          id: 2,
-          name: "Startship #2",
-        },
-        {
-          id: 3,
-          name: "Startship #3",
-        },
-
-    ]
-    }
   },
   {
     path: '/planets',
@@ -51,21 +32,6 @@ const routes = [
     props: {
       default: true,
       title: "planets",
-      data: [
-        {
-          id: 1,
-          name: "Endor",
-        },
-        {
-          id: 2,
-          name: "Tatooine",
-        },
-        {
-          id: 3,
-          name: "Hoot",
-        },
-
-    ]
     }
   },
   // Endpoint/Json Routes
