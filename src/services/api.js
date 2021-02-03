@@ -24,6 +24,7 @@ export const getItem = async (segment) => {
     return data
 }
 
+export const patata = () => 'patata'
 const api = {
     getCollection,
     getItem

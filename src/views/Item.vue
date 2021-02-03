@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div v-if="loading" class="loading">
+        <div v-if="this.$store.state.loading" class="loading">
             Loading...
         </div>
          <ul>
-             <li v-for="(key, value, index) in item" :key='index'>
+             <li v-for="(key, value, index) in this.$store.state.data[this.id]" :key='index'>
                  <span>{{value}}: {{key}}</span>
              </li>
          </ul>
@@ -15,26 +15,11 @@
 <script>
 export default {
     
-    data() {
-        return {
-            item: [],
-            loading: false,
-        }
-    },
-    methods: {
-       async getData(){
-            try {
-                this.loading = true;
-                const res =  await this.$api.getItem(this.$route.path.replace('/', ""))
-                this.item = res
-                this.loading = false;
-            } catch (error) {
-                console.log(error)
-            }
-        },
-    },
-    mounted() {
-        this.getData()
+computed: {
+    id() {
+        return this.$route.params.id - 1
     }
+}
+
 }
 </script>
